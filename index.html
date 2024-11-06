@@ -1,0 +1,63 @@
+<html>
+<head>
+    <title>Cube Finder</title>
+    <style>
+        * { font-size: 1.4rem; }
+        body { 
+            background-color: linen; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; /* Center vertically */
+            align-items: center; /* Center horizontally */
+            height: 100vh; /* Full viewport height */
+            text-align: center; 
+            }
+        h1 { 
+            border: solid; 
+            border-color: brown; 
+            background-color: #D2B48C; 
+            color: black; 
+            width: 40%; /* Make it full width of the container */
+            border-radius: 10vw; 
+            padding: 10px; /* Add padding for better appearance */
+        }
+        h2 { 
+            border: solid; 
+            border-color: black; 
+            width: 20%; /* Make it full width of the container */
+            padding: 10px; /* Add padding for better appearance */
+        }
+        input[type="number"], input[type="submit"] {
+            width: 80%; /* Set width for input fields */
+            margin: 5px 0; /* Add margin for spacing */
+        }
+    </style>
+</head>
+<body>
+    <h1>CUBE FINDER</h1>
+    <form onsubmit="find();"> <!-- Prevent default submission -->
+        <input type="number" step="any" placeholder="Enter Number" id="num">
+        <br/><br/>
+        <input type="submit" value="Find Cube">
+    </form>
+    <h2 id="msg"></h2>
+    <script>
+        function find() {
+            let num = document.getElementById("num");
+            let msg = document.getElementById("msg");
+
+            if (num.value === "") {
+                alert("Please enter a number");
+                msg.innerHTML = "";
+                num.focus();
+                return;
+            }
+
+            let n = parseFloat(num.value);
+            let r = n * n * n;
+            let ans = r.toFixed(3);
+            msg.innerHTML = "Cube: " + ans;
+        }
+    </script>
+</body>
+</html>
